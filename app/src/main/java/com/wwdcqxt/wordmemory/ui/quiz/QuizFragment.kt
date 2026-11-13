@@ -1,6 +1,7 @@
 package com.wwdcqxt.wordmemory.ui.quiz
 
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -134,8 +135,13 @@ class QuizFragment : Fragment() {
     }
 
     private fun resetOptionStyle(button: MaterialButton) {
-        button.backgroundTintList = null
-        button.strokeWidth = 1
+        // OutlinedButton 默认是透明底 + 描边；这里显式给透明色，
+        // 不能赋 null（null 会让 MaterialButton 回退成黑色底）
+        button.backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
+        button.strokeWidth = (1 * resources.displayMetrics.density).toInt()
+        button.strokeColor = ColorStateList.valueOf(
+            ContextCompat.getColor(requireContext(), R.color.brand_primary)
+        )
         button.setTextColor(ContextCompat.getColor(requireContext(), R.color.brand_primary))
     }
 

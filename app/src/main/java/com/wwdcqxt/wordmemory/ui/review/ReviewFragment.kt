@@ -88,6 +88,7 @@ class ReviewFragment : Fragment() {
 
         binding.tvHeadword.text = current.word.headword
         binding.tvPhonetic.text = current.word.phonetic
+        binding.tvMeaning.text = current.word.meaning
 
         // 未揭晓答案时释义保持不可见（INVISIBLE 占位，避免卡片高度跳动）
         binding.tvMeaning.isVisible = state.revealed

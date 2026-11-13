@@ -87,10 +87,10 @@ class ReviewViewModel(
         ).associateWith { quality ->
             val result = EbbinghausScheduler.next(state, quality, now)
             if (result.intervalDays == 0) {
-                val minutes = ((result.dueAt - now) / 60_000.0).roundToInt()
-                "$minutes 分钟后"
+                // 短期学习步：用分钟显示，按钮里不带空格以免换行
+                "${((result.dueAt - now) / 60_000.0).roundToInt()}分"
             } else {
-                "${result.intervalDays} 天后"
+                "${result.intervalDays}天"
             }
         }
     }
