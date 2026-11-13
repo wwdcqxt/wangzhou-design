@@ -38,7 +38,7 @@
         <argument
             android:name="bookName"
             app:argType="string"
-            android:defaultValue="@string/nav_wordbooks" />
+            app:nullable="true" />
         <action
             android:id="@+id/action_list_to_detail"
             app:destination="@id/nav_worddetail" />
