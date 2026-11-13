@@ -99,4 +99,21 @@
 - `test(core)`：补充测试
 - `build` / `chore` / `docs`：工程与文档
 
-完整提交记录见 `git log`，开发文档见 `docs/开发文档.md`。
+完整提交记录见 `git log`。
+
+## 八、交付物
+
+| 文件 | 说明 |
+| --- | --- |
+| [docs/开发文档.pdf](docs/开发文档.pdf) | 开发文档最终提交版（11 页 PDF） |
+| [docs/开发文档.docx](docs/开发文档.docx) | 开发文档 Word 版（可继续修改） |
+| [docs/演示PPT.pptx](docs/演示PPT.pptx) | 演示 PPT（11 页，含原生图表与讲稿备注） |
+| [docs/演示PPT.pdf](docs/演示PPT.pdf) | PPT 的 PDF 版 |
+| [docs/PPT大纲.md](docs/PPT大纲.md) | 每页讲解口径 |
+| [docs/录屏脚本.md](docs/录屏脚本.md) | 3 分钟录屏分镜与水印要求 |
+| [docs/用户测试报告模板.md](docs/用户测试报告模板.md) | 伴生模块产品化（10 分）用表 |
+| [docs/代码问答准备.md](docs/代码问答准备.md) | 抽查答辩自查题 |
+| [CHANGELOG.md](CHANGELOG.md) | 版本记录（v1.0.0） |
+
+PPT 与 Word 由 `tools/` 下的脚本从 Markdown 生成，改完文档可重新生成。
+
