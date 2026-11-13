@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 读取主 App 统计数据的签名级权限（两个 APK 使用同一签名时自动授予） -->
+    <uses-permission android:name="com.wwdcqxt.wordmemory.permission.READ_STATS" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_dashboard"
+        android:label="@string/dashboard_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WordMemoryDashboard">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/dashboard_app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

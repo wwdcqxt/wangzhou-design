@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_app_name">单词看板</string>
+    <string name="dashboard_title">学习数据看板</string>
+    <string name="dashboard_subtitle">单词记忆 · 伴生模块（独立 APK）</string>
+    <string name="card_total_words">总词数</string>
+    <string name="card_learned">已掌握</string>
+    <string name="card_due">待复习</string>
+    <string name="card_reviews">复习次数</string>
+    <string name="card_accuracy">正确率</string>
+    <string name="card_streak">连续打卡</string>
+    <string name="chart_daily_title">最近 14 天复习量</string>
+    <string name="chart_accuracy_title">总体正确率</string>
+    <string name="wrong_title">错词 Top 5</string>
+    <string name="wrong_empty">暂无错词，继续保持</string>
+    <string name="btn_refresh">刷新</string>
+    <string name="btn_export">导出 CSV</string>
+    <string name="export_success">已导出到 %1$s</string>
+    <string name="export_failed">导出失败：%1$s</string>
+    <string name="export_empty">暂无可导出的数据</string>
+    <string name="share_title">分享统计数据</string>
+    <string name="loading">正在读取主 App 数据…</string>
+    <string name="error_permission">无法读取数据：请先安装并打开「单词记忆」主 App（同一签名）</string>
+    <string name="error_generic">读取失败：%1$s</string>
+    <string name="empty_title">还没有学习数据</string>
+    <string name="empty_desc">先去主 App 导入词库并复习几个单词，再回来看看</string>
+    <string name="unit_day">天</string>
+    <string name="unit_times">次</string>
+    <string name="unit_words">词</string>
+    <string name="wrong_count_format">错 %1$d 次</string>
+    <string name="updated_at">更新于 %1$s</string>
+</resources>

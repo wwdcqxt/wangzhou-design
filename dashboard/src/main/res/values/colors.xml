@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dash_primary">#0F766E</color>
+    <color name="dash_primary_light">#CCFBF1</color>
+    <color name="dash_accent">#14B8A6</color>
+    <color name="dash_bg">#F8FAFC</color>
+    <color name="dash_text">#0F172A</color>
+    <color name="dash_text_secondary">#64748B</color>
+    <color name="dash_grid">#E2E8F0</color>
+    <color name="dash_bar">#14B8A6</color>
+    <color name="dash_bar_dim">#99F6E4</color>
+    <color name="dash_error">#DC2626</color>
+</resources>
