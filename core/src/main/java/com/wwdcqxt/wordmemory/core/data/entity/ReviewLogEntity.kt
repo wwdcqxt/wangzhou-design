@@ -1,6 +1,7 @@
 package com.wwdcqxt.wordmemory.core.data.entity
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
@@ -9,9 +10,19 @@ import androidx.room.PrimaryKey
  *
  * quality 取值沿用 SM-2 的 0~5 分制，本 App 只用到 1/3/4/5 四档：
  * 1 忘记、3 模糊、4 记得、5 简单。
+ *
+ * 外键指向 words：单词被删除时日志一并删除，避免统计里出现孤儿记录。
  */
 @Entity(
     tableName = "review_logs",
+    foreignKeys = [
+        ForeignKey(
+            entity = WordEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["wordId"],
+            onDelete = ForeignKey.CASCADE
+        )
+    ],
     indices = [
         Index(value = ["wordId"]),
         Index(value = ["reviewedAt"])

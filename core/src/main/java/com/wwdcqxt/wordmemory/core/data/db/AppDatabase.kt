@@ -29,7 +29,7 @@ import com.wwdcqxt.wordmemory.core.data.entity.WrongRecordEntity
         ReviewLogEntity::class,
         WrongRecordEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {

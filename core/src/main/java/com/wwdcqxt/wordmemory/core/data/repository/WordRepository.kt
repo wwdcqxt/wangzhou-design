@@ -47,7 +47,11 @@ class WordRepository(private val db: AppDatabase) {
 
     suspend fun setFamiliar(wordId: Long, familiar: Boolean) = db.wordDao().setFamiliar(wordId, familiar)
 
-    /** 删除词库：外键级联会一并删除其下单词、卡片、日志 */
+    /**
+     * 删除词库：数据库层已配置外键级联
+     * （word_books ← words ← review_cards / review_logs / wrong_records），
+     * 删词库行即可连带清理全部关联数据。
+     */
     suspend fun deleteBook(bookId: Long) = db.wordBookDao().deleteById(bookId)
 
     /**
