@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.wwdcqxt.wordmemory.ui.home.HomeFragment"
+        android:label="@string/nav_home">
+        <action
+            android:id="@+id/action_home_to_review"
+            app:destination="@id/nav_review" />
+        <action
+            android:id="@+id/action_home_to_quiz"
+            app:destination="@id/nav_quiz" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_wordbooks"
+        android:name="com.wwdcqxt.wordmemory.ui.wordbook.WordBookFragment"
+        android:label="@string/nav_wordbooks">
+        <action
+            android:id="@+id/action_wordbooks_to_list"
+            app:destination="@id/nav_wordlist" />
+        <action
+            android:id="@+id/action_wordbooks_to_import"
+            app:destination="@id/nav_import" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_wordlist"
+        android:name="com.wwdcqxt.wordmemory.ui.wordlist.WordListFragment"
+        android:label="@string/nav_wordbooks">
+        <argument
+            android:name="bookId"
+            app:argType="long" />
+        <argument
+            android:name="bookName"
+            app:argType="string"
+            android:defaultValue="@string/nav_wordbooks" />
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/nav_worddetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_worddetail"
+        android:name="com.wwdcqxt.wordmemory.ui.detail.WordDetailFragment"
+        android:label="@string/word_detail_title">
+        <argument
+            android:name="wordId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_review"
+        android:name="com.wwdcqxt.wordmemory.ui.review.ReviewFragment"
+        android:label="@string/review_title" />
+
+    <fragment
+        android:id="@+id/nav_quiz"
+        android:name="com.wwdcqxt.wordmemory.ui.quiz.QuizFragment"
+        android:label="@string/quiz_title">
+        <argument
+            android:name="wrongOnly"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_wrong"
+        android:name="com.wwdcqxt.wordmemory.ui.wrong.WrongBookFragment"
+        android:label="@string/nav_wrong">
+        <action
+            android:id="@+id/action_wrong_to_detail"
+            app:destination="@id/nav_worddetail" />
+        <action
+            android:id="@+id/action_wrong_to_quiz"
+            app:destination="@id/nav_quiz" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_mine"
+        android:name="com.wwdcqxt.wordmemory.ui.settings.SettingsFragment"
+        android:label="@string/nav_mine">
+        <action
+            android:id="@+id/action_mine_to_quiz"
+            app:destination="@id/nav_quiz" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_import"
+        android:name="com.wwdcqxt.wordmemory.ui.imports.ImportFragment"
+        android:label="@string/import_title" />
+</navigation>
