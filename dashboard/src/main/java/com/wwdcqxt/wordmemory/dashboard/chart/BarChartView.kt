@@ -84,7 +84,8 @@ class BarChartView @JvmOverloads constructor(
 
         val maxValue = points.maxOf { it.second }.coerceAtLeast(1)
         val slotWidth = (chartRight - chartLeft) / points.size
-        val barWidth = slotWidth * 0.55f
+        // 只有一两天数据时柱子会占满整屏，限制最大宽度保证观感
+        val barWidth = minOf(slotWidth * 0.55f, 46f * density())
         val radius = 4f * density()
 
         points.forEachIndexed { index, (label, value) ->
@@ -99,25 +100,29 @@ class BarChartView @JvmOverloads constructor(
             )
             if (barHeight > 0f) {
                 canvas.drawRoundRect(barRect, radius, radius, barPaint)
-            } else {
-                canvas.drawRoundRect(
-                    centerX - barWidth / 2,
-                    chartBottom - 2f * density(),
-                    centerX + barWidth / 2,
-                    chartBottom,
-                    radius,
-                    radius,
-                    barDimPaint
-                )
             }
 
             if (value > 0) {
                 canvas.drawText(value.toString(), centerX, top - 4f * density(), valuePaint)
             }
 
-            // 只在首、中、末标日期，避免 14 个标签挤在一起
+            // 只在首、中、末标日期，避免 14 个标签挤在一起；首末贴边对齐防止被裁切
             if (index == 0 || index == points.size / 2 || index == points.lastIndex) {
-                canvas.drawText(label.takeLast(5), centerX, height - 6f * density(), labelPaint)
+                val text = label.takeLast(5)
+                when (index) {
+                    0 -> {
+                        labelPaint.textAlign = Paint.Align.LEFT
+                        canvas.drawText(text, chartLeft, height - 6f * density(), labelPaint)
+                    }
+                    points.lastIndex -> {
+                        labelPaint.textAlign = Paint.Align.RIGHT
+                        canvas.drawText(text, chartRight, height - 6f * density(), labelPaint)
+                    }
+                    else -> {
+                        labelPaint.textAlign = Paint.Align.CENTER
+                        canvas.drawText(text, centerX, height - 6f * density(), labelPaint)
+                    }
+                }
             }
         }
     }

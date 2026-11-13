@@ -3,7 +3,12 @@
     <style name="Theme.WordMemoryDashboard" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/dash_primary</item>
         <item name="colorSecondary">@color/dash_accent</item>
-        <item name="android:statusBarColor">@color/dash_primary</item>
+        <item name="colorSurface">@color/dash_bg</item>
+        <item name="colorOnSurface">@color/dash_text</item>
+        <item name="colorSurfaceVariant">#EEF2F6</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowBackground">@color/dash_bg</item>
     </style>
 </resources>

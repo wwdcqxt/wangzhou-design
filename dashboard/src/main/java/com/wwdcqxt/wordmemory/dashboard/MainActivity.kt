@@ -3,13 +3,19 @@ package com.wwdcqxt.wordmemory.dashboard
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.wwdcqxt.wordmemory.core.domain.stats.StudyStreak
 import com.wwdcqxt.wordmemory.dashboard.data.DashboardData
 import com.wwdcqxt.wordmemory.dashboard.data.StatsReader
 import com.wwdcqxt.wordmemory.dashboard.databinding.ActivityDashboardBinding
@@ -32,10 +38,22 @@ class MainActivity : AppCompatActivity() {
 
     private val updatedFormat = SimpleDateFormat("HH:mm:ss", Locale.CHINA)
 
+    private companion object {
+        const val DAYS_IN_CHART = 14
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        WindowInsetsControllerCompat(window, binding.root).isAppearanceLightStatusBars = true
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, insets ->
+            val statusBar = insets.getInsets(WindowInsetsCompat.Type.statusBars())
+            view.updatePadding(top = statusBar.top)
+            insets
+        }
 
         viewModel = ViewModelProvider(
             this,
@@ -89,12 +107,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindCharts(data: DashboardData) {
-        binding.barChart.setData(data.daily.map { it.day to it.reviews })
+        binding.barChart.setData(fillLastDays(data, DAYS_IN_CHART))
         binding.donutChart.setPercent(data.overview.accuracy)
         binding.tvCorrectDetail.text =
             "答对 ${data.overview.correctReviews} / 共 ${data.overview.totalReviews} 次"
         binding.tvTodayDetail.text =
             "今日复习 ${data.overview.todayReviews} 次 · 今日正确率 ${(data.overview.todayAccuracy * 100).toInt()}%"
+    }
+
+    /**
+     * 把稀疏的按天数据补成连续 14 天：没有复习的日期补 0，
+     * 否则只有一天数据时柱状图会退化成一根占满全屏的柱子。
+     */
+    private fun fillLastDays(data: DashboardData, days: Int): List<Pair<String, Int>> {
+        val byDay = data.daily.associate { it.day to it.reviews }
+        val today = StudyStreak.startOfDay(System.currentTimeMillis())
+        return (days - 1 downTo 0).map { offset ->
+            val key = StudyStreak.dayKey(today - offset * StudyStreak.DAY_MS)
+            key to (byDay[key] ?: 0)
+        }
     }
 
     private fun bindWrongList(data: DashboardData) {
