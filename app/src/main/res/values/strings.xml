@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">单词记忆</string>
+    <string name="provider_label">单词记忆数据统计</string>
+
+    <!-- 底部导航 -->
+    <string name="nav_home">今日</string>
+    <string name="nav_wordbooks">词库</string>
+    <string name="nav_wrong">错题</string>
+    <string name="nav_mine">我的</string>
+
+    <!-- 首页 -->
+    <string name="home_title">今日复习</string>
+    <string name="home_subtitle">按艾宾浩斯曲线安排，到期就该复习了</string>
+    <string name="home_goal_format">今日已复习 %1$d / %2$d</string>
+    <string name="home_streak_format">连续打卡 %1$d 天</string>
+    <string name="home_learned_format">已掌握 %1$d 词</string>
+    <string name="home_start_review">开始复习</string>
+    <string name="home_start_quiz">测试一下</string>
+    <string name="home_empty_title">今天没有到期的单词</string>
+    <string name="home_empty_desc">去词库导入新词，或做一次测试巩固记忆</string>
+    <string name="home_loading">正在加载今日队列…</string>
+    <string name="home_error">加载失败</string>
+    <string name="home_retry">重试</string>
+
+    <!-- 词库 -->
+    <string name="wordbook_title">我的词库</string>
+    <string name="wordbook_empty_title">还没有词库</string>
+    <string name="wordbook_empty_desc">点击右下角按钮，导入 CSV / TXT / JSON 词库，或加载内置 CET-4 词库</string>
+    <string name="wordbook_count_format">%1$d 词</string>
+    <string name="wordbook_import">导入词库</string>
+    <string name="wordbook_delete">删除词库</string>
+    <string name="wordbook_delete_confirm">删除词库“%1$s”？该词库的单词与复习记录会一起删除。</string>
+    <string name="wordbook_seed">加载内置词库</string>
+
+    <!-- 词库内单词列表 -->
+    <string name="wordlist_title">%1$s</string>
+    <string name="wordlist_search_hint">搜索单词或释义</string>
+    <string name="wordlist_empty_title">没有匹配的单词</string>
+    <string name="wordlist_empty_desc">换个关键词试试</string>
+
+    <!-- 单词详情 -->
+    <string name="word_detail_title">单词详情</string>
+    <string name="word_detail_familiar">标记为熟悉</string>
+    <string name="word_detail_unfamiliar">取消熟悉标记</string>
+    <string name="word_detail_add_wrong">加入错题本</string>
+    <string name="word_detail_remove_wrong">移出错题本</string>
+    <string name="word_detail_online">在线补充释义</string>
+    <string name="word_detail_online_loading">正在请求 Free Dictionary API…</string>
+    <string name="word_detail_memory">记忆状态</string>
+    <string name="word_detail_history">复习记录</string>
+    <string name="word_detail_no_history">这个单词还没有复习记录</string>
+    <string name="word_detail_marked_familiar">已标记为熟悉</string>
+    <string name="word_detail_marked_unfamiliar">已取消熟悉标记</string>
+    <string name="word_detail_added_wrong">已加入错题本</string>
+    <string name="word_detail_removed_wrong">已移出错题本</string>
+
+    <!-- 复习 -->
+    <string name="review_title">复习中</string>
+    <string name="review_progress">%1$d / %2$d</string>
+    <string name="review_show_answer">显示答案</string>
+    <string name="review_again">忘记</string>
+    <string name="review_hard">模糊</string>
+    <string name="review_good">记得</string>
+    <string name="review_easy">简单</string>
+    <string name="review_next_again">10 分钟后再来</string>
+    <string name="review_next_hard">%1$d 天后复习</string>
+    <string name="review_next_good">%1$d 天后复习</string>
+    <string name="review_next_easy">%1$d 天后复习</string>
+    <string name="review_finished_title">本轮复习完成</string>
+    <string name="review_finished_desc">本轮共复习 %1$d 个单词，还有 %2$d 个待复习</string>
+    <string name="review_back_home">回到首页</string>
+    <string name="review_empty">队列已清空</string>
+    <string name="review_tap_to_reveal">点击卡片查看释义</string>
+
+    <!-- 测试 -->
+    <string name="quiz_title">测试模式</string>
+    <string name="quiz_question_format">第 %1$d 题 / 共 %2$d 题</string>
+    <string name="quiz_hint">选择正确的中文释义</string>
+    <string name="quiz_correct">回答正确</string>
+    <string name="quiz_wrong">回答错误，正确答案：%1$s</string>
+    <string name="quiz_result_title">测试结束</string>
+    <string name="quiz_result_format">答对 %1$d / %2$d 题，正确率 %3$d%%</string>
+    <string name="quiz_again">再测一次</string>
+    <string name="quiz_need_words">至少需要 4 个单词才能开始测试</string>
+    <string name="quiz_next">下一题</string>
+    <string name="quiz_finish">查看结果</string>
+
+    <!-- 错题本 -->
+    <string name="wrong_title">错题本</string>
+    <string name="wrong_empty_title">还没有错题</string>
+    <string name="wrong_empty_desc">做测试答错的单词会自动收进来</string>
+    <string name="wrong_count_format">错 %1$d 次</string>
+    <string name="wrong_mastered">已掌握</string>
+    <string name="wrong_mastered_toast">已标记为掌握</string>
+    <string name="wrong_practice">错题再练</string>
+
+    <!-- 导入 -->
+    <string name="import_title">导入词库</string>
+    <string name="import_name_hint">词库名称</string>
+    <string name="import_pick_file">选择文件（CSV / TXT / JSON）</string>
+    <string name="import_preview_empty">选择文件后在这里预览解析结果</string>
+    <string name="import_preview_format">解析成功：%1$d 个单词（跳过重复 %2$d 个）</string>
+    <string name="import_unsupported">不支持的文件类型，请选择 .csv / .txt / .json</string>
+    <string name="import_read_failed">文件读取失败：%1$s</string>
+    <string name="import_confirm">确认导入</string>
+    <string name="import_done">已导入 %1$d 个单词</string>
+    <string name="import_empty_result">没有解析出可导入的单词</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">我的</string>
+    <string name="settings_goal">每日复习目标</string>
+    <string name="settings_goal_value">%1$d 词 / 天</string>
+    <string name="settings_reminder">每日复习提醒</string>
+    <string name="settings_reminder_time">提醒时间</string>
+    <string name="settings_reminder_time_value">%1$s</string>
+    <string name="settings_notification_denied">通知权限未开启，已改为应用内提醒（首页红点 + 横幅）</string>
+    <string name="settings_notification_granted">通知权限已开启</string>
+    <string name="settings_open_notification">去开启通知权限</string>
+    <string name="settings_dashboard">打开数据看板</string>
+    <string name="settings_dashboard_missing">未安装数据看板模块（dashboard）</string>
+    <string name="settings_about">关于</string>
+    <string name="settings_about_desc">单词记忆 v1.0.0 · 学号 202405100117 · 王洲</string>
+    <string name="settings_stats">学习统计</string>
+
+    <!-- 通用 -->
+    <string name="common_ok">确定</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_loading">加载中…</string>
+    <string name="common_retry">重试</string>
+    <string name="common_back">返回</string>
+    <string name="common_network_error">网络不可用，请检查网络后重试</string>
+    <string name="common_unknown_error">发生未知错误：%1$s</string>
+    <string name="common_word_count">%1$d 词</string>
+
+    <!-- 通知 -->
+    <string name="notification_channel_name">复习提醒</string>
+    <string name="notification_channel_desc">每天提醒你复习到期的单词</string>
+    <string name="notification_title">该复习单词啦</string>
+    <string name="notification_text">今天有 %1$d 个单词到期，花几分钟巩固一下吧</string>
+</resources>

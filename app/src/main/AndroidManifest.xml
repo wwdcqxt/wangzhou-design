@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 每日复习提醒（Android 13+ 需要运行时申请） -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 在线释义（免费词典 API） -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 供 P2 看板模块读取统计数据的签名级权限 -->
+    <permission
+        android:name="com.wwdcqxt.wordmemory.permission.READ_STATS"
+        android:protectionLevel="signature" />
+
+    <application
+        android:name=".WordMemoryApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_word"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher_word"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WordMemory">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".provider.StatsProvider"
+            android:authorities="com.wwdcqxt.wordmemory.provider"
+            android:exported="true"
+            android:readPermission="com.wwdcqxt.wordmemory.permission.READ_STATS"
+            android:label="@string/provider_label" />
+    </application>
+
+</manifest>
